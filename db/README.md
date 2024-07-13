@@ -18,6 +18,10 @@ erDiagram
         int id PK
         string username
         string password
+        boolean is_enable
+        boolean account_no_expired
+        boolean account_no_locked
+        boolean credential_no_expired
     }
 
     CATEGORIES ||--o{ TRANSACTIONS : includes
