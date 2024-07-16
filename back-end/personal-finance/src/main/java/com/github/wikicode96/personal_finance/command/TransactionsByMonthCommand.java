@@ -1,9 +1,20 @@
 package com.github.wikicode96.personal_finance.command;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.Instant;
 
-public class TransactionsByMonthCommand {
-
+@Setter
+@Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class TransactionsByMonthCommand
+{
     private Instant date; // Month and Year
     private Long userId;
 }

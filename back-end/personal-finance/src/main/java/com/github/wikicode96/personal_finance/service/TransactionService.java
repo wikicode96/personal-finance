@@ -1,10 +1,12 @@
 package com.github.wikicode96.personal_finance.service;
 
-import com.github.wikicode96.personal_finance.command.TransactionsByMonthCommand;
-import com.github.wikicode96.personal_finance.command.TransactionsByYearCommand;
 import com.github.wikicode96.personal_finance.dto.TransactionDTO;
 
-public interface TransactionService {
-    TransactionDTO getTransactionsByMonth(TransactionsByMonthCommand command);
-    TransactionDTO getTransactionsByYear(TransactionsByYearCommand command);
+import java.time.Instant;
+import java.util.List;
+
+public interface TransactionService
+{
+    List<TransactionDTO> getTransactionsByMonth(Instant date, Long userId);
+    List<TransactionDTO> getTransactionsByYear(Instant date, Long userId);
 }
