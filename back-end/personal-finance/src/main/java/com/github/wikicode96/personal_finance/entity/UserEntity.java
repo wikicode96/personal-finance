@@ -34,8 +34,8 @@ public class UserEntity
     @Column(name = "password")
     private String password;
 
-    @Column(name = "is_enable")
-    private boolean isEnable;
+    @Column(name = "is_enabled")
+    private boolean isEnabled;
 
     @Column(name = "account_no_expired")
     private boolean accountNoExpired;

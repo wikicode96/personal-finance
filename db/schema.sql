@@ -17,9 +17,9 @@ CREATE TABLE users (
     username VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL UNIQUE,
     is_enabled BOOLEAN NOT NULL DEFAULT TRUE,
-    account_non_expired BOOLEAN NOT NULL DEFAULT TRUE,
-    account_non_locked BOOLEAN NOT NULL DEFAULT TRUE,
-    credentials_non_expired BOOLEAN NOT NULL DEFAULT TRUE
+    account_no_expired BOOLEAN NOT NULL DEFAULT TRUE,
+    account_no_locked BOOLEAN NOT NULL DEFAULT TRUE,
+    credential_no_expired BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 -- Create the Transactions table
