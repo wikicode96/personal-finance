@@ -12,6 +12,9 @@ import java.util.List;
 @Repository
 public interface TransactionRepository extends JpaRepository<TransactionEntity, Long>
 {
+    @Query("SELECT t FROM TransactionEntity t WHERE t.user = :user")
+    List<TransactionEntity> findTransactionsByUser(@Param("user") UserEntity user);
+
     @Query("SELECT t FROM TransactionEntity t WHERE t.user = :user AND FUNCTION('YEAR', t.transactionDate) = :year AND FUNCTION('MONTH', t.transactionDate) = :month")
     List<TransactionEntity> findTransactionsByMonthAndUser(@Param("user") UserEntity user, @Param("year") int year, @Param("month") int month);
 

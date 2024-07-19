@@ -8,9 +8,6 @@ import com.github.wikicode96.personal_finance.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.List;
 
 @Service
@@ -23,29 +20,12 @@ public class TransactionServiceImpl implements TransactionService
     private TransactionRepository repository;
 
     @Override
-    public List<TransactionDTO> getTransactionsByMonth(Instant date, Long userId)
+    public List<TransactionDTO> getTransactionsByUserId(Long userId)
     {
         UserEntity user = new UserEntity();
         user.setId(userId);
 
-        ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
-        int month = zdt.getMonthValue();
-        int year = zdt.getYear();
-
-        List<TransactionEntity> entities = repository.findTransactionsByMonthAndUser(user, year, month);
-        return mapper.transactionEntityToListDTO(entities);
-    }
-
-    @Override
-    public List<TransactionDTO> getTransactionsByYear(Instant date, Long userId)
-    {
-        UserEntity user = new UserEntity();
-        user.setId(userId);
-
-        ZonedDateTime zdt = date.atZone(ZoneId.systemDefault());
-        int year = zdt.getYear();
-
-        List<TransactionEntity> entities = repository.findTransactionsByYearAndUser(user, year);
+        List<TransactionEntity> entities = repository.findTransactionsByUser(user);
         return mapper.transactionEntityToListDTO(entities);
     }
 }
